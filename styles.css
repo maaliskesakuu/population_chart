@@ -7,11 +7,14 @@ h1 {
 }
 
 a {
-  color: #00AC8D;
+  color: #545479;
+  text-decoration: underline;
 }
 
 a:hover {
-  color: #545479
+  color: #545479;
+  text-decoration-color: #00AC8D;
+  font-weight: bolder;
 }
 
 input {
@@ -40,9 +43,13 @@ input {
   width: 65vw;
 }
 
-#countryNameP, #indicatorP {
+.boxes {
   display: inline-block;
   background-color: #4FFBDF;
   padding: 0.3rem 0.5rem;
   border-radius: 5px;
+}
+
+#flag {
+  background-color: red;;
 }
