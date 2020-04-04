@@ -20,7 +20,10 @@ async function fetchData() {
 		var data = getValues(fetchedData);
 		var labels = getLabels(fetchedData);
 		var countryName = getCountryName(fetchedData);
+		var indicator = getIndicator(fetchedData);
 		renderChart(data, labels, countryName);
+		document.getElementById('countryNameP').textContent = countryName;
+		document.getElementById('indicatorP').textContent = indicator;
 	}  
 }
 
@@ -37,6 +40,11 @@ function getLabels(data) {
 function getCountryName(data) {
 	var countryName = data[1][0].country.value;
 	return countryName;
+}
+
+function getIndicator(data) {
+	var indicator = data[1][0].indicator.value;
+	return indicator;
 }
 
 function renderChart(data, labels, countryName) {

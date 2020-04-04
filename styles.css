@@ -39,3 +39,10 @@ input {
 .container {
   width: 65vw;
 }
+
+#countryNameP, #indicatorP {
+  display: inline-block;
+  background-color: #4FFBDF;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+}
