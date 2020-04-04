@@ -6,9 +6,9 @@ document
 
 async function fetchData() {
 	var countryCode = document.getElementById('country').value;
-	const indicatorCode = 'SP.POP.TOTL';
+	const indicatorCode = 'SP.POP.0014.FE.IN';
 	const baseUrl = 'https://api.worldbank.org/v2/country/';
-	const url = baseUrl + countryCode + '/indicator/' + indicatorCode + '?format=json';
+	const url = baseUrl + countryCode + '/indicator/' + indicatorCode + '?format=json' + '&per_page=60';
 	console.log('Fetching data from URL: ' + url);
 
 	var response = await fetch(url);
@@ -49,14 +49,15 @@ function renderChart(data, labels, countryName) {
 
 	// Draw new chart
 	currentChart = new Chart(ctx, {
-		type: 'line',
+		type: 'bar',
 		data: {
 			labels: labels,
 			datasets: [{
 				label: 'Population, ' + countryName,
 				data: data,
-				borderColor: 'rgba(75, 192, 192, 1)',
-				backgroundColor: 'rgba(75, 192, 192, 0.2',
+				borderColor: 'rgba(79, 251, 223, 1)',
+				backgroundColor: 'rgba(79, 251, 223, 0.6)', 
+				borderWidth: '2'
 			}]
 		},
 		options: {
@@ -66,6 +67,9 @@ function renderChart(data, labels, countryName) {
 						beginAtZero: true
 					}
 				}]
+			},
+			animation: {
+				duration: 3000
 			}
 		}
 	});
