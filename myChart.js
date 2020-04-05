@@ -26,8 +26,8 @@ async function fetchData() {
 		var countryName = getCountryName(fetchedData);
 		var indicator = getIndicator(fetchedData);
 		renderChart(data, labels, countryName);
-		document.getElementById('countryNameP').textContent = countryName;
 		document.getElementById('indicatorP').textContent = indicator;
+		document.getElementById('countryNameP').textContent = countryName;
 	}  
 }
 
@@ -102,7 +102,7 @@ async function fetchInformation() {
 
 		document.getElementById('region').textContent = fetchedDataInfo.region;
 
-		document.getElementById('flag').textContent = fetchedDataInfo.flag;
+		document.querySelector('#flag').src = fetchedDataInfo.flag;
 	}
 }
 
