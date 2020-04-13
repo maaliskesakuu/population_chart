@@ -6,13 +6,22 @@ h1 {
   margin: 3vh auto;
 }
 
+header {
+  height: 15vh;
+  background-color: #E8F3F1;
+  margin-bottom: 5vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
 a {
   color: #545479;
   text-decoration: underline;
 }
 
 a:hover {
-  color: #545479;
+  color: black;
   text-decoration-color: #00AC8D;
   font-weight: bolder;
 }
@@ -33,6 +42,7 @@ input {
   background-color: #E8F3F1;
   font-weight: bolder;
   margin-bottom: 1vh; 
+  cursor: pointer;
 }
 
 .content {
@@ -55,4 +65,18 @@ input {
   width: 8vw;
   box-shadow: 0 0 5px #545479;
   margin-bottom: 2vh;
+}
+
+footer {
+  height: 20vh;
+  background-color: #545479;
+  color: white;
+  margin-top: 5vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+footer a {
+  color: white;
 }
