@@ -1,23 +1,19 @@
 var currentChart;
 
-document
-	.getElementById('renderBtn')
-	.addEventListener('click', fetchData);
-
-document
-	.getElementById('renderBtn')
-  	.addEventListener('click', fetchInformation);
-
 async function fetchData() {
 	var countryCode = document.getElementById('country').value;
 	const indicatorCode = 'SP.POP.0014.FE.IN';
-	const baseUrl = 'https://api.worldbank.org/v2/country/';
+	const baseUrl = '//api.worldbank.org/v2/country/';
 	const url = baseUrl + countryCode + '/indicator/' + indicatorCode + '?format=json' + '&per_page=60';
 	console.log('Fetching data from URL: ' + url);
 
 	var response = await fetch(url);
 
-	if (response.status == 200) {
+	try {
+		if (response.status !== 200) {
+			throw new Error('cannot fetch the data');
+		} 
+
 		var fetchedData = await response.json();
 		console.log(fetchedData);
 
@@ -28,6 +24,8 @@ async function fetchData() {
 		renderChart(data, labels, countryName);
 		document.getElementById('indicatorP').textContent = indicator;
 		document.getElementById('countryNameP').textContent = countryName;
+	} catch (error) {
+		alert('error fetching data from World Bank API; check that the country code is correct');
 	}  
 }
 
@@ -89,13 +87,18 @@ function renderChart(data, labels, countryName) {
 
 async function fetchInformation() {
 	var countryCode = document.getElementById('country').value;
-	const urlInfo = 'https://restcountries.eu/rest/v2/alpha/' + countryCode + '?fields=capital;region;flag';
+	const urlInfo = '//restcountries.eu/rest/v2/alpha/' + countryCode + '?fields=capital;region;flag';
 	console.log('Fetching data from: ' + urlInfo);
 
 	var response = await fetch(urlInfo);
 
-	if (response.status == 200) {
+	try {
+		if (response.status !== 200) {
+			throw new Error('cannot fetch the data');
+		} 
+
 		var fetchedDataInfo = await response.json();
+
 		console.log(fetchedDataInfo);
 
 		document.getElementById('capital').textContent = fetchedDataInfo.capital;
@@ -103,7 +106,18 @@ async function fetchInformation() {
 		document.getElementById('region').textContent = fetchedDataInfo.region;
 
 		document.querySelector('#flag').src = fetchedDataInfo.flag;
-	}
+
+	} catch (error) {
+		alert('error fetching data from RESTCountries; check that the country code is correct');
+	};
 }
+
+document
+	.getElementById('renderBtn')
+	.addEventListener('click', fetchData);
+
+document
+	.getElementById('renderBtn')
+  	.addEventListener('click', fetchInformation);
 
 

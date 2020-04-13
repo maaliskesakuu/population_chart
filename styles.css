@@ -63,7 +63,7 @@ input {
 #flag {
   display: inline-block;
   width: 8vw;
-  box-shadow: 0 0 5px #545479;
+  box-shadow: 0 0 2px #545479;
   margin-bottom: 2vh;
 }
 
