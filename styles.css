@@ -12,7 +12,7 @@ p {
 
 header {
   height: 15vh;
-  background-color: #E8F3F1;
+  background-color: rgba(79, 251, 223, 0.4);
   margin-bottom: 5vh;
   display: grid;
   justify-items: center;
@@ -58,10 +58,10 @@ input {
 
 .boxes {
   display: inline-block;
-  border: 1px solid #00AC8D;
+  border: 2px solid #00AC8D;
   padding: 0.5rem 1rem;
   border-radius: 2px;
-  background-color: rgba(79, 251, 223, 0.4);
+  background-color: #E8F3F1;
 }
 
 #flag {
