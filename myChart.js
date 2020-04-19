@@ -66,7 +66,7 @@ function renderChart(data, labels, countryName) {
 				label: 'Population, ' + countryName,
 				data: data,
 				borderColor: 'rgba(79, 251, 223, 1)',
-				backgroundColor: 'rgba(79, 251, 223, 0.6)', 
+				backgroundColor: 'rgba(79, 251, 223, 0.4)', 
 				borderWidth: '2'
 			}]
 		},

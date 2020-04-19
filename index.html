@@ -9,8 +9,11 @@
 			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 			crossorigin="anonymous"
 		/>
-        <link rel="stylesheet" href="./styles.css" />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="./styles.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+			rel="stylesheet"
+		/>
 		<script
 			defer
 			src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"
@@ -23,12 +26,12 @@
 				<h1>Population Graphs</h1>
 			</header>
 			<p>
-				Enter a three-letter
+				Enter a three letter
 				<a
 					href="https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes"
 					target="_blank"
 					>country code
-				</a> 
+				</a>
 			</p>
 			<input
 				class="textinput"
@@ -39,23 +42,28 @@
 			/>
 			<p>
 				<button class="button" id="renderBtn">Render population graph</button>
-            </p>
-            <p id='indicatorP' class='boxes'>Indicator</p>
-            <p id='countryNameP' class='boxes'>Country name</p>
-            <p id='capital' class='boxes'>Capital city</p>
-            <p id='region' class='boxes'>Region</p><br />
-						<img id='flag' 
-						src="//restcountries.eu/data/fin.svg"
-						alt=Flag 
-						">
+			</p>
+			<p id="indicatorP" class="boxes">Indicator</p>
+			<p id="countryNameP" class="boxes">Country name</p>
+			<p id="capital" class="boxes">Capital city</p>
+			<p id="region" class="boxes">Region</p>
+			<br />
+			<img id='flag' src="//restcountries.eu/data/fin.svg" alt=Flag ">
 			<div class="container">
 				<canvas id="myChart"></canvas>
 			</div>
 		</div>
 		<footer>
-			<p>Tanja Lehtinen &copy; 2020<br />
-			Based on the Population graphs app <a href="//github.com/mikkokotola/populationgraphs/blob/master/LICENSE" target="_blank">(MIT)</a><br />
-			Population data: World Bank (CC-BY-4.0)</p>
+			<p>
+				Tanja Lehtinen &copy; 2020<br />
+				Based on the Population graphs app
+				<a
+					href="//github.com/mikkokotola/populationgraphs/blob/master/LICENSE"
+					target="_blank"
+					>(MIT)</a
+				><br />
+				Population data: World Bank (CC-BY-4.0)
+			</p>
 		</footer>
 	</body>
 </html>
