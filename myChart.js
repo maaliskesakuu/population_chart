@@ -4,7 +4,13 @@ async function fetchData() {
 	var countryCode = document.getElementById('country').value;
 	const indicatorCode = 'SP.POP.0014.FE.IN';
 	const baseUrl = '//api.worldbank.org/v2/country/';
-	const url = baseUrl + countryCode + '/indicator/' + indicatorCode + '?format=json' + '&per_page=60';
+	const url =
+		baseUrl +
+		countryCode +
+		'/indicator/' +
+		indicatorCode +
+		'?format=json' +
+		'&per_page=60';
 	console.log('Fetching data from URL: ' + url);
 
 	var response = await fetch(url);
@@ -12,7 +18,7 @@ async function fetchData() {
 	try {
 		if (response.status !== 200) {
 			throw new Error('cannot fetch the data');
-		} 
+		}
 
 		var fetchedData = await response.json();
 		console.log(fetchedData);
@@ -25,17 +31,19 @@ async function fetchData() {
 		document.getElementById('indicatorP').textContent = indicator;
 		document.getElementById('countryNameP').textContent = countryName;
 	} catch (error) {
-		alert('error fetching data from World Bank API; check that the country code is correct');
-	}  
+		alert(
+			'error fetching data from World Bank API; check that the country code is correct'
+		);
+	}
 }
 
 function getValues(data) {
-	var vals = data[1].sort((a, b) => a.date - b.date).map(item => item.value);
+	var vals = data[1].sort((a, b) => a.date - b.date).map((item) => item.value);
 	return vals;
 }
 
 function getLabels(data) {
-	var labels = data[1].sort((a, b) => a.date - b.date).map(item => item.date);
+	var labels = data[1].sort((a, b) => a.date - b.date).map((item) => item.date);
 	return labels;
 }
 
@@ -52,9 +60,9 @@ function getIndicator(data) {
 function renderChart(data, labels, countryName) {
 	var ctx = document.getElementById('myChart').getContext('2d');
 	var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
-	gradientStroke.addColorStop(0, "rgba(79, 251, 223, 0.9)");
-	gradientStroke.addColorStop(0.4, "rgba(79, 251, 223, 0.7)");
-	gradientStroke.addColorStop(0.8, "rgba(79, 251, 223, 0.5)");
+	gradientStroke.addColorStop(0, 'rgba(79, 251, 223, 0.9)');
+	gradientStroke.addColorStop(0.4, 'rgba(79, 251, 223, 0.7)');
+	gradientStroke.addColorStop(0.8, 'rgba(79, 251, 223, 0.5)');
 
 	if (currentChart) {
 		// Clear the previous chart if it exists
@@ -66,32 +74,39 @@ function renderChart(data, labels, countryName) {
 		type: 'bar',
 		data: {
 			labels: labels,
-			datasets: [{
-				label: 'Population, ' + countryName,
-				data: data,
-				borderColor: gradientStroke,
-				backgroundColor: gradientStroke,  
-				borderWidth: '1'
-			}]
+			datasets: [
+				{
+					label: 'Population, ' + countryName,
+					data: data,
+					borderColor: gradientStroke,
+					backgroundColor: gradientStroke,
+					borderWidth: '1',
+				},
+			],
 		},
 		options: {
 			scales: {
-				yAxes: [{
-					ticks: {
-						beginAtZero: true
-					}
-				}]
+				yAxes: [
+					{
+						ticks: {
+							beginAtZero: true,
+						},
+					},
+				],
 			},
 			animation: {
-				duration: 3000
-			}
-		}
+				duration: 3000,
+			},
+		},
 	});
 }
 
 async function fetchInformation() {
 	var countryCode = document.getElementById('country').value;
-	const urlInfo = '//restcountries.eu/rest/v2/alpha/' + countryCode + '?fields=capital;region;flag';
+	const urlInfo =
+		'//restcountries.eu/rest/v2/alpha/' +
+		countryCode +
+		'?fields=capital;region;flag';
 	console.log('Fetching data from: ' + urlInfo);
 
 	var response = await fetch(urlInfo);
@@ -99,7 +114,7 @@ async function fetchInformation() {
 	try {
 		if (response.status !== 200) {
 			throw new Error('cannot fetch the data');
-		} 
+		}
 
 		var fetchedDataInfo = await response.json();
 
@@ -110,18 +125,15 @@ async function fetchInformation() {
 		document.getElementById('region').textContent = fetchedDataInfo.region;
 
 		document.querySelector('#flag').src = fetchedDataInfo.flag;
-
 	} catch (error) {
-		alert('error fetching data from RESTCountries; check that the country code is correct');
-	};
+		alert(
+			'error fetching data from RESTCountries; check that the country code is correct'
+		);
+	}
 }
 
-document
-	.getElementById('renderBtn')
-	.addEventListener('click', fetchData);
+document.getElementById('renderBtn').addEventListener('click', fetchData);
 
 document
 	.getElementById('renderBtn')
-  	.addEventListener('click', fetchInformation);
-
-
+	.addEventListener('click', fetchInformation);
