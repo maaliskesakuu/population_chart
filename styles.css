@@ -19,6 +19,14 @@ header {
   align-items: center;
 }
 
+.girl {
+  width: 25vw;
+  margin-bottom: 5vh;
+  box-shadow: 0 0 5px #545479;
+}
+
+/* Photo by Karl Fredrickson on Unsplash */
+
 a {
   color: #545479;
   text-decoration: underline;
