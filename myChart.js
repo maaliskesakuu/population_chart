@@ -51,6 +51,10 @@ function getIndicator(data) {
 
 function renderChart(data, labels, countryName) {
 	var ctx = document.getElementById('myChart').getContext('2d');
+	var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+	gradientStroke.addColorStop(0, "rgba(79, 251, 223, 0.9)");
+	gradientStroke.addColorStop(0.4, "rgba(79, 251, 223, 0.7)");
+	gradientStroke.addColorStop(0.8, "rgba(79, 251, 223, 0.5)");
 
 	if (currentChart) {
 		// Clear the previous chart if it exists
@@ -65,9 +69,9 @@ function renderChart(data, labels, countryName) {
 			datasets: [{
 				label: 'Population, ' + countryName,
 				data: data,
-				borderColor: 'rgba(79, 251, 223, 1)',
-				backgroundColor: 'rgba(79, 251, 223, 0.4)', 
-				borderWidth: '2'
+				borderColor: gradientStroke,
+				backgroundColor: gradientStroke,  
+				borderWidth: '1'
 			}]
 		},
 		options: {
